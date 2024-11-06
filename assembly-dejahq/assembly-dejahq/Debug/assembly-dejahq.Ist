@@ -1,0 +1,344 @@
+Microsoft (R) Macro Assembler Version 14.41.34123.0	    11/06/24 10:02:43
+main.asm						     Page 1 - 1
+
+
+				.386
+				.model flat, stdcall
+				.stack 4096
+
+				; Windows API függvények deklarálása
+				ExitProcess PROTO, dwExitCode:DWORD
+				GetStdHandle PROTO, nStdHandle:DWORD
+				WriteConsoleA PROTO, hConsoleOutput:DWORD, lpBuffer:PTR BYTE, nNumberOfCharsToWrite:DWORD, lpNumberOfCharsWritten:PTR DWORD, lpReserved:DWORD
+				ReadConsoleA PROTO, hConsoleInput:DWORD, lpBuffer:PTR BYTE, nNumberOfCharsToRead:DWORD, lpNumberOfCharsRead:PTR DWORD, lpReserved:DWORD
+
+ 00000000			.data
+ 00000000 45 6E 74 65 72	    promptMessage1 BYTE "Enter the first number (0-9): ", 0
+	   20 74 68 65 20
+	   66 69 72 73 74
+	   20 6E 75 6D 62
+	   65 72 20 28 30
+	   2D 39 29 3A 20
+	   00
+ 0000001F 45 6E 74 65 72	    promptMessage2 BYTE "Enter the second number (0-9): ", 0
+	   20 74 68 65 20
+	   73 65 63 6F 6E
+	   64 20 6E 75 6D
+	   62 65 72 20 28
+	   30 2D 39 29 3A
+	   20 00
+ 0000003F 54 68 65 20 73	    addMessage BYTE "The sum is: ", 0
+	   75 6D 20 69 73
+	   3A 20 00
+ 0000004C 54 68 65 20 70	    multMessage BYTE "The product is: ", 0
+	   72 6F 64 75 63
+	   74 20 69 73 3A
+	   20 00
+ 0000005D 54 68 65 20 64	    diffMessage BYTE "The difference is: ", 0
+	   69 66 66 65 72
+	   65 6E 63 65 20
+	   69 73 3A 20 00
+ 00000071 54 68 65 20 64	    divMessage BYTE "The division is: ", 0
+	   69 76 69 73 69
+	   6F 6E 20 69 73
+	   3A 20 00
+ 00000083 43 61 6E 6E 6F	    divErrorMessage BYTE "Cannot divide by zero.", 0
+	   74 20 64 69 76
+	   69 64 65 20 62
+	   79 20 7A 65 72
+	   6F 2E 00
+ 0000009A 54 68 65 20 72	    modMessage BYTE "The remainder is: ", 0
+	   65 6D 61 69 6E
+	   64 65 72 20 69
+	   73 3A 20 00
+ 000000AD 54 68 65 20 70	    powerMessage BYTE "The power is: ", 0
+	   6F 77 65 72 20
+	   69 73 3A 20 00
+ 000000BC 43 6F 6D 70 61	    comparisonMessage BYTE "Comparison result: ", 0
+	   72 69 73 6F 6E
+	   20 72 65 73 75
+	   6C 74 3A 20 00
+ 000000D0  00000004 [		    inputBuffer BYTE 4 DUP(0)     ; Bemenethez buffer
+	    00
+	   ]
+ 000000D4  00000004 [		    resultBuffer BYTE 4 DUP(0)    ; Eredmény kiírásához buffer
+	    00
+	   ]
+ 000000D8 00000000		    hConsoleOutput DWORD ?
+ 000000DC 00000000		    hConsoleInput DWORD ?
+ 000000E0 00000000		    bytesWritten DWORD ?
+ 000000E4 00000000		    bytesRead DWORD ?
+
+ 00000000			.code
+
+ 00000000			main PROC
+				    ; Konzol kimenet és bemenet lekérése
+				    INVOKE GetStdHandle, -11     ; STD_OUTPUT_HANDLE
+ 00000007  A3 000000D8 R	    mov hConsoleOutput, eax
+				    INVOKE GetStdHandle, -10     ; STD_INPUT_HANDLE
+ 00000013  A3 000000DC R	    mov hConsoleInput, eax
+
+				    ; Elsõ szám bekérése
+				    INVOKE WriteConsoleA, hConsoleOutput, ADDR promptMessage1, SIZEOF promptMessage1, ADDR bytesWritten, 0
+				    INVOKE ReadConsoleA, hConsoleInput, ADDR inputBuffer, 4, ADDR bytesRead, 0
+ 0000004A  0F B6 05		    movzx eax, inputBuffer       ; Olvasott karakter számértéke
+	   000000D0 R
+ 00000051  83 E8 30		    sub eax, '0'                 ; ASCII -> int konverzió
+ 00000054  8B C8		    mov ecx, eax                 ; Az elsõ szám tárolása ECX-ben
+
+				    ; Második szám bekérése
+				    INVOKE WriteConsoleA, hConsoleOutput, ADDR promptMessage2, SIZEOF promptMessage2, ADDR bytesWritten, 0
+				    INVOKE ReadConsoleA, hConsoleInput, ADDR inputBuffer, 4, ADDR bytesRead, 0
+ 00000088  0F B6 05		    movzx eax, inputBuffer
+	   000000D0 R
+ 0000008F  83 E8 30		    sub eax, '0'
+ 00000092  8B D0		    mov edx, eax                 ; A második szám tárolása EDX-ben
+
+				    ; Összeg függvény hívása
+ 00000094  51			    push ecx
+ 00000095  52			    push edx
+ 00000096  E8 00000205		    CALL AddNumbers
+ 0000009B  83 C4 08		    add esp, 8
+ 0000009E  83 C0 30		    add eax, '0'
+ 000000A1  A2 000000D4 R	    mov resultBuffer, al
+
+				    ; Összeg kiírása
+				    INVOKE WriteConsoleA, hConsoleOutput, ADDR addMessage, SIZEOF addMessage, ADDR bytesWritten, 0
+				    INVOKE WriteConsoleA, hConsoleOutput, ADDR resultBuffer, 1, ADDR bytesWritten, 0
+
+				    ; Szorzat függvény hívása
+ 000000D8  51			    push ecx
+ 000000D9  52			    push edx
+ 000000DA  E8 000001CA		    CALL MultiplyNumbers
+ 000000DF  83 C4 08		    add esp, 8
+ 000000E2  83 C0 30		    add eax, '0'
+ 000000E5  A2 000000D4 R	    mov resultBuffer, al
+
+				    ; Szorzat kiírása
+				    INVOKE WriteConsoleA, hConsoleOutput, ADDR multMessage, SIZEOF multMessage, ADDR bytesWritten, 0
+				    INVOKE WriteConsoleA, hConsoleOutput, ADDR resultBuffer, 1, ADDR bytesWritten, 0
+
+				    ; Különbség függvény hívása
+ 0000011C  51			    push ecx
+ 0000011D  52			    push edx
+ 0000011E  E8 00000190		    CALL SubtractNumbers
+ 00000123  83 C4 08		    add esp, 8
+ 00000126  83 C0 30		    add eax, '0'
+ 00000129  A2 000000D4 R	    mov resultBuffer, al
+
+				    ; Különbség kiírása
+				    INVOKE WriteConsoleA, hConsoleOutput, ADDR diffMessage, SIZEOF diffMessage, ADDR bytesWritten, 0
+				    INVOKE WriteConsoleA, hConsoleOutput, ADDR resultBuffer, 1, ADDR bytesWritten, 0
+
+				    ; Osztás függvény hívása
+ 00000160  83 FA 00		    cmp edx, 0
+ 00000163  74 46		    je DivisionError
+ 00000165  51			    push ecx
+ 00000166  52			    push edx
+ 00000167  E8 00000150		    CALL DivideNumbers
+ 0000016C  83 C4 08		    add esp, 8
+ 0000016F  83 C0 30		    add eax, '0'
+ 00000172  A2 000000D4 R	    mov resultBuffer, al
+
+				    ; Osztás kiírása
+				    INVOKE WriteConsoleA, hConsoleOutput, ADDR divMessage, SIZEOF divMessage, ADDR bytesWritten, 0
+				    INVOKE WriteConsoleA, hConsoleOutput, ADDR resultBuffer, 1, ADDR bytesWritten, 0
+ 000001A9  EB 19		    jmp AfterDivision
+
+ 000001AB			DivisionError:
+				    INVOKE WriteConsoleA, hConsoleOutput, ADDR divErrorMessage, SIZEOF divErrorMessage, ADDR bytesWritten, 0
+
+ 000001C4			AfterDivision:
+
+				    ; Maradékos osztás
+ 000001C4  83 FA 00		    cmp edx, 0
+ 000001C7  74 44		    je AfterModulus
+ 000001C9  51			    push ecx
+ 000001CA  52			    push edx
+ 000001CB  E8 000000F6		    CALL ModulusNumbers
+ 000001D0  83 C4 08		    add esp, 8
+ 000001D3  83 C0 30		    add eax, '0'
+ 000001D6  A2 000000D4 R	    mov resultBuffer, al
+
+				    ; Maradékos osztás kiírása
+				    INVOKE WriteConsoleA, hConsoleOutput, ADDR modMessage, SIZEOF modMessage, ADDR bytesWritten, 0
+				    INVOKE WriteConsoleA, hConsoleOutput, ADDR resultBuffer, 1, ADDR bytesWritten, 0
+
+ 0000020D			AfterModulus:
+
+				    ; Hatványozás
+ 0000020D  51			    push ecx
+ 0000020E  52			    push edx
+ 0000020F  E8 000000BE		    CALL PowerNumbers
+ 00000214  83 C4 08		    add esp, 8
+ 00000217  83 C0 30		    add eax, '0'
+ 0000021A  A2 000000D4 R	    mov resultBuffer, al
+
+				    ; Hatványozás eredményének kiírása
+				    INVOKE WriteConsoleA, hConsoleOutput, ADDR powerMessage, SIZEOF powerMessage, ADDR bytesWritten, 0
+				    INVOKE WriteConsoleA, hConsoleOutput, ADDR resultBuffer, 1, ADDR bytesWritten, 0
+
+				    ; Összehasonlítás eredményének kiírása
+ 00000251  51			    push ecx
+ 00000252  52			    push edx
+ 00000253  E8 00000092		    CALL CompareNumbers
+ 00000258  83 C4 08		    add esp, 8
+ 0000025B  83 C0 30		    add eax, '0'
+ 0000025E  A2 000000D4 R	    mov resultBuffer, al
+
+				    INVOKE WriteConsoleA, hConsoleOutput, ADDR comparisonMessage, SIZEOF comparisonMessage, ADDR bytesWritten, 0
+				    INVOKE WriteConsoleA, hConsoleOutput, ADDR resultBuffer, 1, ADDR bytesWritten, 0
+
+				    ; Kilépés
+ 00000295  B8 00000000		    mov eax, 0
+				    INVOKE ExitProcess, eax
+ 000002A0			main ENDP
+
+				; Összeadás függvény
+ 000002A0			AddNumbers PROC
+ 000002A0  8B 44 24 04		    mov eax, [esp+4]
+ 000002A4  03 44 24 08		    add eax, [esp+8]
+ 000002A8  C3			    ret
+ 000002A9			AddNumbers ENDP
+
+				; Szorzás függvény
+ 000002A9			MultiplyNumbers PROC
+ 000002A9  8B 44 24 04		    mov eax, [esp+4]
+ 000002AD  0F AF 44 24 08	    imul eax, [esp+8]
+ 000002B2  C3			    ret
+ 000002B3			MultiplyNumbers ENDP
+
+				; Kivonás függvény
+ 000002B3			SubtractNumbers PROC
+ 000002B3  8B 44 24 04		    mov eax, [esp+4]
+ 000002B7  2B 44 24 08		    sub eax, [esp+8]
+ 000002BB  C3			    ret
+ 000002BC			SubtractNumbers ENDP
+
+				; Osztás függvény
+ 000002BC			DivideNumbers PROC
+ 000002BC  8B 44 24 04		    mov eax, [esp+4]
+ 000002C0  99			    cdq
+ 000002C1  F7 7C 24 08		    idiv dword ptr [esp+8]
+ 000002C5  C3			    ret
+ 000002C6			DivideNumbers ENDP
+
+				; Maradékos osztás függvény
+ 000002C6			ModulusNumbers PROC
+ 000002C6  8B 44 24 04		    mov eax, [esp+4]
+ 000002CA  99			    cdq
+ 000002CB  F7 7C 24 08		    idiv dword ptr [esp+8]
+ 000002CF  8B C2		    mov eax, edx  ; A maradék eredménye EDX-ben van, ezt adjuk vissza
+ 000002D1  C3			    ret
+ 000002D2			ModulusNumbers ENDP
+
+				; Hatványozás függvény
+ 000002D2			PowerNumbers PROC
+ 000002D2  B8 00000001		    mov eax, 1
+ 000002D7  8B 4C 24 08		    mov ecx, [esp+8]   ; Hatvány
+ 000002DB  8B 5C 24 04		    mov ebx, [esp+4]   ; Alap
+
+ 000002DF			PowerLoop:
+ 000002DF  85 C9		    test ecx, ecx      ; Ellenõrzés, hogy ecx (exponent) nulla-e
+ 000002E1  74 06		    jz PowerDone
+ 000002E3  0F AF C3		    imul eax, ebx      ; Szorzás az alappal
+ 000002E6  49			    dec ecx
+ 000002E7  EB F6		    jmp PowerLoop
+
+ 000002E9			PowerDone:
+ 000002E9  C3			    ret
+ 000002EA			PowerNumbers ENDP
+
+				; Összehasonlítás függvény
+ 000002EA			CompareNumbers PROC
+ 000002EA  8B 44 24 04		    mov eax, [esp+4]
+ 000002EE  8B 5C 24 08		    mov ebx, [esp+8]
+ 000002F2  3B C3		    cmp eax, ebx
+ 000002F4  77 08		    ja FirstGreater
+ 000002F6  72 0C		    jb SecondGreater
+ 000002F8  B8 0000003D		    mov eax, '='
+ 000002FD  C3			    ret
+
+ 000002FE			FirstGreater:
+ 000002FE  B8 0000003E		    mov eax, '>'
+ 00000303  C3			    ret
+
+ 00000304			SecondGreater:
+ 00000304  B8 0000003C		    mov eax, '<'
+ 00000309  C3			    ret
+ 0000030A			CompareNumbers ENDP
+
+				END main
+Microsoft (R) Macro Assembler Version 14.41.34123.0	    11/06/24 10:02:43
+main.asm						     Symbols 2 - 1
+
+
+
+
+Segments and Groups:
+
+                N a m e                 Size     Length   Align   Combine Class
+
+FLAT . . . . . . . . . . . . . .	GROUP
+STACK  . . . . . . . . . . . . .	32 Bit	 00001000 DWord	  Stack	  'STACK'	 
+_DATA  . . . . . . . . . . . . .	32 Bit	 000000E8 DWord	  Public  'DATA'	
+_TEXT  . . . . . . . . . . . . .	32 Bit	 0000030A DWord	  Public  'CODE'	
+
+
+Procedures, parameters, and locals:
+
+                N a m e                 Type     Value    Attr
+
+AddNumbers . . . . . . . . . . .	P Near	 000002A0 _TEXT	Length= 00000009 Public STDCALL
+CompareNumbers . . . . . . . . .	P Near	 000002EA _TEXT	Length= 00000020 Public STDCALL
+  FirstGreater . . . . . . . . .	L Near	 000002FE _TEXT	
+  SecondGreater  . . . . . . . .	L Near	 00000304 _TEXT	
+DivideNumbers  . . . . . . . . .	P Near	 000002BC _TEXT	Length= 0000000A Public STDCALL
+ExitProcess  . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+GetStdHandle . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+ModulusNumbers . . . . . . . . .	P Near	 000002C6 _TEXT	Length= 0000000C Public STDCALL
+MultiplyNumbers  . . . . . . . .	P Near	 000002A9 _TEXT	Length= 0000000A Public STDCALL
+PowerNumbers . . . . . . . . . .	P Near	 000002D2 _TEXT	Length= 00000018 Public STDCALL
+  PowerLoop  . . . . . . . . . .	L Near	 000002DF _TEXT	
+  PowerDone  . . . . . . . . . .	L Near	 000002E9 _TEXT	
+ReadConsoleA . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+SubtractNumbers  . . . . . . . .	P Near	 000002B3 _TEXT	Length= 00000009 Public STDCALL
+WriteConsoleA  . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+main . . . . . . . . . . . . . .	P Near	 00000000 _TEXT	Length= 000002A0 Public STDCALL
+  DivisionError  . . . . . . . .	L Near	 000001AB _TEXT	
+  AfterDivision  . . . . . . . .	L Near	 000001C4 _TEXT	
+  AfterModulus . . . . . . . . .	L Near	 0000020D _TEXT	
+
+
+Symbols:
+
+                N a m e                 Type     Value    Attr
+
+@CodeSize  . . . . . . . . . . .	Number	 00000000h   
+@DataSize  . . . . . . . . . . .	Number	 00000000h   
+@Interface . . . . . . . . . . .	Number	 00000003h   
+@Model . . . . . . . . . . . . .	Number	 00000007h   
+@code  . . . . . . . . . . . . .	Text   	 _TEXT
+@data  . . . . . . . . . . . . .	Text   	 FLAT
+@fardata?  . . . . . . . . . . .	Text   	 FLAT
+@fardata . . . . . . . . . . . .	Text   	 FLAT
+@stack . . . . . . . . . . . . .	Text   	 FLAT
+addMessage . . . . . . . . . . .	Byte	 0000003F _DATA	
+bytesRead  . . . . . . . . . . .	DWord	 000000E4 _DATA	
+bytesWritten . . . . . . . . . .	DWord	 000000E0 _DATA	
+comparisonMessage  . . . . . . .	Byte	 000000BC _DATA	
+diffMessage  . . . . . . . . . .	Byte	 0000005D _DATA	
+divErrorMessage  . . . . . . . .	Byte	 00000083 _DATA	
+divMessage . . . . . . . . . . .	Byte	 00000071 _DATA	
+hConsoleInput  . . . . . . . . .	DWord	 000000DC _DATA	
+hConsoleOutput . . . . . . . . .	DWord	 000000D8 _DATA	
+inputBuffer  . . . . . . . . . .	Byte	 000000D0 _DATA	
+modMessage . . . . . . . . . . .	Byte	 0000009A _DATA	
+multMessage  . . . . . . . . . .	Byte	 0000004C _DATA	
+powerMessage . . . . . . . . . .	Byte	 000000AD _DATA	
+promptMessage1 . . . . . . . . .	Byte	 00000000 _DATA	
+promptMessage2 . . . . . . . . .	Byte	 0000001F _DATA	
+resultBuffer . . . . . . . . . .	Byte	 000000D4 _DATA	
+
+	   0 Warnings
+	   0 Errors

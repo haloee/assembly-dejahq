@@ -1,0 +1,126 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Dell\\source\\repos\\assembly-dejahq\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{145C98F0-8CF1-4FAB-9D6C-C6F3616FFB68}|assembly-dejahq\\assembly-dejahq.vcxproj|C:\\Users\\Dell\\source\\repos\\assembly-dejahq\\assembly-dejahq\\main.asm||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{145C98F0-8CF1-4FAB-9D6C-C6F3616FFB68}|assembly-dejahq\\assembly-dejahq.vcxproj|solutionrelative:assembly-dejahq\\main.asm||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Dell\\source\\repos\\assembly-dejahq\\assembly-dejahq\\Debug\\assembly-dejahq.Ist||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:assembly-dejahq\\Debug\\assembly-dejahq.Ist||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Dell\\source\\repos\\assembly-dejahq\\assembly-dejahq\\Debug\\assembly-dejahq.ilk||{25834150-CD7E-11D0-92DF-00A0C9138C45}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:assembly-dejahq\\Debug\\assembly-dejahq.ilk||{25834150-CD7E-11D0-92DF-00A0C9138C45}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Dell\\source\\repos\\assembly-dejahq\\assembly-dejahq\\Debug\\assembly-dejahq.log||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:assembly-dejahq\\Debug\\assembly-dejahq.log||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Dell\\source\\repos\\assembly-dejahq\\assembly-dejahq\\Debug\\main.obj||{25834150-CD7E-11D0-92DF-00A0C9138C45}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:assembly-dejahq\\Debug\\main.obj||{25834150-CD7E-11D0-92DF-00A0C9138C45}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Dell\\source\\repos\\assembly-dejahq\\assembly-dejahq\\Debug\\assembly-dejahq.exe.recipe||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:assembly-dejahq\\Debug\\assembly-dejahq.exe.recipe||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{e8b06f52-6d01-11d2-aa7d-00c04f990343}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "assembly-dejahq.Ist",
+              "DocumentMoniker": "C:\\Users\\Dell\\source\\repos\\assembly-dejahq\\assembly-dejahq\\Debug\\assembly-dejahq.Ist",
+              "RelativeDocumentMoniker": "assembly-dejahq\\Debug\\assembly-dejahq.Ist",
+              "ToolTip": "C:\\Users\\Dell\\source\\repos\\assembly-dejahq\\assembly-dejahq\\Debug\\assembly-dejahq.Ist",
+              "RelativeToolTip": "assembly-dejahq\\Debug\\assembly-dejahq.Ist",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-10-31T09:26:47.238Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "assembly-dejahq.ilk",
+              "DocumentMoniker": "C:\\Users\\Dell\\source\\repos\\assembly-dejahq\\assembly-dejahq\\Debug\\assembly-dejahq.ilk",
+              "RelativeDocumentMoniker": "assembly-dejahq\\Debug\\assembly-dejahq.ilk",
+              "ToolTip": "C:\\Users\\Dell\\source\\repos\\assembly-dejahq\\assembly-dejahq\\Debug\\assembly-dejahq.ilk",
+              "RelativeToolTip": "assembly-dejahq\\Debug\\assembly-dejahq.ilk",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAALfSURBVEhL7ZVBSBtREIb/XVOjxFYhRARpwFMNsYFAsHpRxGAwtyQiCj14iEdF6EV68eRFpKBCWykq1qMmOURaUTQQiBVDL1ZJihcjtlQ0aUrRShM3nbd5TY2miRR7Kf3gZ\u002BfN7O68eW93Hv4qqVRK4KZMUVGRYLfb75N5jw1lZx6i0ah/bW3tIx8WxuVyWU5OTt6TEiSpkA4ODl61t7fr\u002BeM5yVSgVCoRi8UiW1tbd0dGRhCPx3kkNw0NDRgcHIRCoQjqdDrr/v5\u002BlIeyyCSYn59XWa3Wr16vF5OTkzC3mnkkN4H1AEwmE5xOJ9RqddBmszmXl5ff8fBV6urqRFb2wsKC1NLSIn2OxfOqq6tLMpvN0tDQkER7wZbrTVtbG9u/LER\u002Bxfb2tsSuophxFeT8/Bx\u002Bvx\u002Bjo6MoLS194PF4Xmi1WjUPy1z/bXnY2NjA\u002BPg4jo\u002BP60Oh0GvulrmRBIxAIAD6QJhpkh2cP07w7OlzuF2ejNhyJRIJHv3FjVXwO/4nKMg/koCam5b0iNm1tbXo7e2l1i1mJDKJAoSs5n49hL29vTsajcZPto50S/Zegs4NboG\u002B9SQ5\u002BOACdocNfX19sFgsUKlUmZVRVFZWPjk8PDRMTU3Jf\u002BNPqA2ju7sb5eXlmJubo9kL6OnpQSt12eT3RK4cOVGQHobDYWxubqKxsRFGo5GdVKioqMDKygo6OzvR39\u002BPmZkZTE9Po7m5Gau\u002BVYRD4fQbLpBMUnWXYAmUZ2dnKfabGwwG\u002BSAZHh5GWVmZfKUuCYqjqqoK1JLllrCzswOfz5d\u002BA4fOBNTU1DDzi\u002BzgCKenp293d3eNY2NjiEQi6OjoQHV1NWZnZ9kJx28DiouL0dTUhIGBAe65Amv3n5aWlh47HI6XaVc6QT2V5qXN1rAZshnr9Xo52dHREb8NKCkpkb8w2pMgHUoTi4uLl9eDJfjgdrvXqcrsLWJJWCWkVB59I00Eg8Hb/LFrAPwAdKqA5fmzVbkAAAAASUVORK5CYII=",
+              "WhenOpened": "2024-10-31T09:11:34.273Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "main.obj",
+              "DocumentMoniker": "C:\\Users\\Dell\\source\\repos\\assembly-dejahq\\assembly-dejahq\\Debug\\main.obj",
+              "RelativeDocumentMoniker": "assembly-dejahq\\Debug\\main.obj",
+              "ToolTip": "C:\\Users\\Dell\\source\\repos\\assembly-dejahq\\assembly-dejahq\\Debug\\main.obj",
+              "RelativeToolTip": "assembly-dejahq\\Debug\\main.obj",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAQBSURBVEhLpVVbLNxpFD8zU6FxCcKiWYvlxXoQEimJjei6BAmGSESpS12SsVIhq4iJepq4ZCNUVkRoRJqYsk\u002B88LCykXgQYtYl6jrUNjtiZrFu29Znz/k7akZXM6lf8s3/\u002B5/vfy7fOb9zBj4HlUoVe3R0ZDg8PNyvr69PY7H1OD8/592nKCgoeICGlxcXF8Xc3JxAR/ry8vJkPr4d1Gq1Eo2/IcMlJSUiLy9PTE1NCZT92dLS8pA/\u002BzIUFRX9gIbeIgTuRXR0tLTIydraGt3EWFtbq5TJZKzxeSj4KYGMt7a2/qLX679pbGyE1dVVPgHY39\u002BH\u002Bfl5CAgIuJuSknL/9PRUPzk5\u002BZqPITc39/vj4\u002BN3JpPpkEWW4LS8RSNSWi4jv746OzvpFrResSr09/eXou729PT0C1tb2zssliCnHypodXV128HBgWdbWxssLy9Lh\u002BaQy\u002BWADiAnJ4fIoYuMjFS7u7t/1d7eXqJUKptOTk7u4e0eGY3Gl05OTndZDWRExaampo6NjY0AMm6elksoFAqIiYmhQMDe3p6lV0AyQG9vL4SHh0N6ejosLS31ZWVlPUVbBhledWdzc9MNcw8rKyusYgkqqJeXFzg6OrLEEgaDAfb29sDOzg5SU1MhOzv7XzSuDQ4OziUHB\u002Bvr6w5IP9ja2mKVC1DkLi4u0hO/A8wzeHh48OlF4bHY/HaF4uJiSE5OplS\u002BUNjY2LxOSkq67\u002B/v70y5JyUC5Tw2NhaQkpCRkQFCCNDpdDAwMADIIvD19ZVqRZGbw8fHBxISEsDNzW2zubn5ubyhoeHXurq6J4GBgX/hE/z8/KQPo6KiID8/HxwcHH6XBNcwMzMDSGd\u002BuwDpkg229YRs8xEApigLU2CanZ29pOIHTNlvQUFBX\u002BNeYBElmtL\u002Bcmk0GhEXFyfJqRFJl2yQLTZriZqaGiUqbpAyFm4cFb8jOb3/nwP8RmAaRGFhocAeEP8g0MbNQ5HYUlFRkYJRaL29vV1ZfKMDWru7u4LGCu1R7/3CwsLPrGY9SPkmB7SQhaKqqkoMDw/TLcTo6KjG1dVVahiLtrYGXV1dvLsCNRo2qtSkZ2dn1JSq7u7uD2lpaWqrRiJFqdVqoa\u002BvjyU3A2kPOMsgPj7\u002B3c7OTqfVDnj7EZh3wDkkRW8OZ2dn\u002BieEiIiIv8fHxzVWOcBR/Ji30NHRoUIyhNDsGRoaYukFPD09obS0FEJCQkw9PT3PysrKnvOR9QgNDfXDG/2BHSwqKyulwtPCiSomJiaISQIdV\u002BB4kSb1FyEzMzMC86vb3t4WyHuBo0SMjY0Ro3YHBwcr\u002BbPbITExMRijnSaK4tigyI1Ykx9vFfl1hIWFfYtRL\u002BBf5fnIyMhPLDYDwH\u002B2no8FQKKllQAAAABJRU5ErkJggg==",
+              "WhenOpened": "2024-10-31T09:11:04.51Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "main.asm",
+              "DocumentMoniker": "C:\\Users\\Dell\\source\\repos\\assembly-dejahq\\assembly-dejahq\\main.asm",
+              "RelativeDocumentMoniker": "assembly-dejahq\\main.asm",
+              "ToolTip": "C:\\Users\\Dell\\source\\repos\\assembly-dejahq\\assembly-dejahq\\main.asm",
+              "RelativeToolTip": "assembly-dejahq\\main.asm",
+              "ViewState": "AgIAANAAAAAAAAAAAAAAAOIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-10-31T08:20:03.913Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "assembly-dejahq.log",
+              "DocumentMoniker": "C:\\Users\\Dell\\source\\repos\\assembly-dejahq\\assembly-dejahq\\Debug\\assembly-dejahq.log",
+              "RelativeDocumentMoniker": "assembly-dejahq\\Debug\\assembly-dejahq.log",
+              "ToolTip": "C:\\Users\\Dell\\source\\repos\\assembly-dejahq\\assembly-dejahq\\Debug\\assembly-dejahq.log",
+              "RelativeToolTip": "assembly-dejahq\\Debug\\assembly-dejahq.log",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-10-31T09:10:41.638Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "assembly-dejahq.exe.recipe",
+              "DocumentMoniker": "C:\\Users\\Dell\\source\\repos\\assembly-dejahq\\assembly-dejahq\\Debug\\assembly-dejahq.exe.recipe",
+              "RelativeDocumentMoniker": "assembly-dejahq\\Debug\\assembly-dejahq.exe.recipe",
+              "ToolTip": "C:\\Users\\Dell\\source\\repos\\assembly-dejahq\\assembly-dejahq\\Debug\\assembly-dejahq.exe.recipe",
+              "RelativeToolTip": "assembly-dejahq\\Debug\\assembly-dejahq.exe.recipe",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-10-31T09:10:23.431Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
